@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import Counter from './components/Counter';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App  extends Component {
+
+  constructor(){
+    super();
+
+    this.state ={
+      total: 0,
+    }
+  }
+
+  changeTotal(number,method){
+    if(method === 'increase'){
+      this.setState(prevState => ({total: prevState.total + number}))
+    }
+    
+    if(method === 'decrease'){
+      this.setState(prevState => ({total: prevState.total - number}))
+    }
+  }
+
+
+  render(){
+    return (
+      <div className="App">
+        <div className='container'>
+          <Counter initialCount='4' changeTotal={(number,method)=>this.changeTotal(number,method)}/>
+          <Counter initialCount='6' changeTotal={(number,method)=>this.changeTotal(number,method)}/>
+          <Counter initialCount='10' changeTotal={(number,method)=>this.changeTotal(number,method)}/>
+          <Counter changeTotal={(number,method)=>this.changeTotal(number,method)} />
+          <h1>{`Total Amount ${this.state.total}`}</h1>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

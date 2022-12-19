@@ -1,0 +1,29 @@
+
+.counter-container{
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem;
+}
+
+.counter-number,.counter-increase,.counter-decrease{
+    font-size: 2rem;
+}
+
+.counter-number{
+    margin-right: 2rem;
+}
+
+.counter-increase{
+    background-color: #49c78e;
+    width: 3rem;
+    border: none;
+    border-radius: 0.2rem;
+    color: #fff;
+}
+.counter-decrease{
+    background-color: #f24667;
+    width: 3rem;
+    border: none;
+    border-radius: 0.2rem;
+    color: #fff;
+}
